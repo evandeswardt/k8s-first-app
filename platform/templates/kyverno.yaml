@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: application
+metadata:
+  name: kyverno
+spec:
+  destination:
+    name: ''
+    namespace: ''
+    server: ''
+  source:
+    path: ''
+    repoURL: https://kyverno.github.io/kyverno/
+    targetRevision: 3.2.7
+    chart: kyverno
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
